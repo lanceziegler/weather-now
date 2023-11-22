@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const contentContainer = document.getElementById('contentContainer');
   let weather = '';
   let daytime;
-  const shortForecast = [];
+  let shortForecast = '';
   let shortForecastCase;
   let loading = true;
   contentContainer.style.display = 'none';
@@ -56,56 +56,54 @@ document.addEventListener('DOMContentLoaded', () => {
               console.log(data3);
               weather = data3.properties.periods[0].temperature;
               daytime = data3.properties.periods[0].isDaytime;
-              shortForecast.push(
-                data3.properties.periods[0].shortForecast
-                  .toLowerCase()
-                  .split(' ')
-              );
+              shortForecast =
+                data3.properties.periods[0].shortForecast.toLowerCase();
+
               loading = false;
 
               if (shortForecast.length > 0) {
                 if (
-                  shortForecast[0].includes('clear') ||
-                  shortForecast[0].includes('sun')
+                  shortForecast.includes('clear') ||
+                  shortForecast.includes('sun')
                 ) {
                   //Clear Weather CASE
                   shortForecastCase = 1;
                 }
                 if (
-                  shortForecast[0].includes('part') &&
-                  shortForecast[0].includes('cloudy')
+                  shortForecast.includes('part') &&
+                  shortForecast.includes('cloudy')
                 ) {
                   //Partly cloudy CASE
                   shortForecastCase = 2;
                 }
-                if (shortForecast[0].includes('cloud')) {
+                if (shortForecast.includes('cloud')) {
                   //Cloudy CASE
                   shortForecastCase = 3;
                 }
                 if (
-                  shortForecast[0].includes('rain') &&
-                  shortForecast[0].includes('light')
+                  shortForecast.includes('rain') &&
+                  shortForecast.includes('light')
                 ) {
                   //Light Rain CASE
                   shortForecastCase = 4;
                 }
                 if (
-                  (shortForecast[0].includes('rain') &&
-                    shortForecast[0].includes('heavy')) ||
-                  shortForecast[0].includes('showers')
+                  (shortForecast.includes('rain') &&
+                    shortForecast.includes('heavy')) ||
+                  shortForecast.includes('showers')
                 ) {
                   //Heavy Rain CASE (use sleet skycon... looks more like heavy rain anyways)
                   shortForecastCase = 5;
                 }
-                if (shortForecast[0].includes('wind')) {
+                if (shortForecast.includes('wind')) {
                   //Heavy Rain CASE (use sleet skycon... looks more like heavy rain anyways)
                   shortForecastCase = 6;
                 }
-                if (shortForecast[0].includes('snow')) {
+                if (shortForecast.includes('snow')) {
                   //Heavy Rain CASE (use sleet skycon... looks more like heavy rain anyways)
                   shortForecastCase = 7;
                 }
-                if (shortForecast[0].includes('fog')) {
+                if (shortForecast.includes('fog')) {
                   //Fog CASE
                   shortForecastCase = 8;
                 }
@@ -196,7 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
               setTimeout(() => {
                 loadingScreen.style.display = 'none';
                 contentContainer.style.display = 'block';
-              }, 600);
+              }, 200);
             });
         });
     });

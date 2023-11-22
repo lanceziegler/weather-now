@@ -1,5 +1,5 @@
 (function (global) {
-  "use strict";
+  'use strict';
 
   /* Set up a RequestAnimationFrame shim so we can animate efficiently FOR
    * GREAT JUSTICE. */
@@ -7,22 +7,22 @@
 
   (function () {
     var raf =
-      global.requestAnimationFrame ||
-      global.webkitRequestAnimationFrame ||
-      global.mozRequestAnimationFrame ||
-      global.oRequestAnimationFrame ||
-      global.msRequestAnimationFrame,
+        global.requestAnimationFrame ||
+        global.webkitRequestAnimationFrame ||
+        global.mozRequestAnimationFrame ||
+        global.oRequestAnimationFrame ||
+        global.msRequestAnimationFrame,
       caf =
-      global.cancelAnimationFrame ||
-      global.webkitCancelAnimationFrame ||
-      global.mozCancelAnimationFrame ||
-      global.oCancelAnimationFrame ||
-      global.msCancelAnimationFrame;
+        global.cancelAnimationFrame ||
+        global.webkitCancelAnimationFrame ||
+        global.mozCancelAnimationFrame ||
+        global.oCancelAnimationFrame ||
+        global.msCancelAnimationFrame;
 
     if (raf && caf) {
       requestInterval = function (fn) {
         var handle = {
-          value: null
+          value: null,
         };
 
         function loop() {
@@ -175,7 +175,7 @@
   function puffs(ctx, t, cx, cy, rx, ry, rmin, rmax) {
     var i;
 
-    for (i = 5; i--;) puff(ctx, t + i / 5, cx, cy, rx, ry, rmin, rmax);
+    for (i = 5; i--; ) puff(ctx, t + i / 5, cx, cy, rx, ry, rmin, rmax);
   }
 
   function cloud(ctx, t, cx, cy, cw, s, color) {
@@ -189,9 +189,9 @@
     ctx.fillStyle = color;
     puffs(ctx, t, cx, cy, a, b, c, d);
 
-    ctx.globalCompositeOperation = "destination-out";
+    ctx.globalCompositeOperation = 'destination-out';
     puffs(ctx, t, cx, cy, a, b, c - s, d - s);
-    ctx.globalCompositeOperation = "source-over";
+    ctx.globalCompositeOperation = 'source-over';
   }
 
   function sun(ctx, t, cx, cy, cw, s, color) {
@@ -207,14 +207,14 @@
 
     ctx.strokeStyle = color;
     ctx.lineWidth = s;
-    ctx.lineCap = "round";
-    ctx.lineJoin = "round";
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
 
     ctx.beginPath();
     ctx.arc(cx, cy, a, 0, TAU, false);
     ctx.stroke();
 
-    for (i = 8; i--;) {
+    for (i = 8; i--; ) {
       p = (t + i / 8) * TAU;
       cos = Math.cos(p);
       sin = Math.sin(p);
@@ -232,8 +232,8 @@
 
     ctx.strokeStyle = color;
     ctx.lineWidth = s;
-    ctx.lineCap = "round";
-    ctx.lineJoin = "round";
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
 
     cx += c * b;
 
@@ -264,7 +264,7 @@
 
     ctx.fillStyle = color;
 
-    for (i = 4; i--;) {
+    for (i = 4; i--; ) {
       p = (t + i / 4) % 1;
       x = cx + ((i - 1.5) / 1.5) * (i === 1 || i === 2 ? -1 : 1) * a;
       y = cy + p * p * cw;
@@ -286,10 +286,10 @@
 
     ctx.strokeStyle = color;
     ctx.lineWidth = s * 0.5;
-    ctx.lineCap = "round";
-    ctx.lineJoin = "round";
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
 
-    for (i = 4; i--;) {
+    for (i = 4; i--; ) {
       p = (t + i / 4) % 1;
       x =
         Math.floor(cx + ((i - 1.5) / 1.5) * (i === 1 || i === 2 ? -1 : 1) * a) +
@@ -320,10 +320,10 @@
 
     ctx.strokeStyle = color;
     ctx.lineWidth = s * 0.5;
-    ctx.lineCap = "round";
-    ctx.lineJoin = "round";
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
 
-    for (i = 4; i--;) {
+    for (i = 4; i--; ) {
       p = (t + i / 4) % 1;
       x = cx + Math.sin((p + i / 4) * TAU) * a;
       y = cy + p * cw;
@@ -345,9 +345,9 @@
     ctx.fillStyle = color;
     puffs(ctx, t, cx, cy, a, b, c, d);
 
-    ctx.globalCompositeOperation = "destination-out";
+    ctx.globalCompositeOperation = 'destination-out';
     puffs(ctx, t, cx, cy, a, b, c - s, d - s);
-    ctx.globalCompositeOperation = "source-over";
+    ctx.globalCompositeOperation = 'source-over';
   }
 
   /*
@@ -412,13 +412,14 @@
         0.6491, -0.1325, 0.6994, -0.138, 0.75, -0.14,
       ],
     ],
-    WIND_OFFSETS = [{
+    WIND_OFFSETS = [
+      {
         start: 0.36,
-        end: 0.11
+        end: 0.11,
       },
       {
         start: 0.56,
-        end: 0.16
+        end: 0.16,
       },
     ];
 
@@ -433,16 +434,16 @@
     ctx.fillStyle = color;
     ctx.strokeStyle = color;
     ctx.lineWidth = s;
-    ctx.lineCap = "round";
-    ctx.lineJoin = "round";
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
 
     ctx.beginPath();
     ctx.arc(x, y, a, d, d + Math.PI, false);
     ctx.arc(x - b * e, y - b * f, c, d + Math.PI, d, false);
     ctx.arc(x + c * e, y + c * f, b, d + Math.PI, d, true);
-    ctx.globalCompositeOperation = "destination-out";
+    ctx.globalCompositeOperation = 'destination-out';
     ctx.fill();
-    ctx.globalCompositeOperation = "source-over";
+    ctx.globalCompositeOperation = 'source-over';
     ctx.stroke();
   }
 
@@ -460,8 +461,8 @@
 
     ctx.strokeStyle = color;
     ctx.lineWidth = s;
-    ctx.lineCap = "round";
-    ctx.lineJoin = "round";
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
 
     if (a < 1) {
       ctx.beginPath();
@@ -540,7 +541,7 @@
   var Skycons = function (opts) {
     this.list = [];
     this.interval = null;
-    this.color = opts && opts.color ? opts.color : "black";
+    this.color = opts && opts.color ? opts.color : 'black';
     this.resizeClear = !!(opts && opts.resizeClear);
     this.loadPic = 0;
   };
@@ -645,8 +646,8 @@
 
     ctx.strokeStyle = color;
     ctx.lineWidth = k;
-    ctx.lineCap = "round";
-    ctx.lineJoin = "round";
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
 
     line(ctx, a + w * 0.2 + k * 0.5, e, b + w * 0.8 - k * 0.5, e);
     line(ctx, c + w * 0.2 + k * 0.5, f, d + w * 0.8 - k * 0.5, f);
@@ -654,15 +655,15 @@
 
   Skycons.prototype = {
     _determineDrawingFunction: function (draw) {
-      if (typeof draw === "string")
-        draw = Skycons[draw.toUpperCase().replace(/-/g, "_")] || null;
+      if (typeof draw === 'string')
+        draw = Skycons[draw.toUpperCase().replace(/-/g, '_')] || null;
 
       return draw;
     },
     add: function (el, draw) {
       var obj;
 
-      if (typeof el === "string") el = document.getElementById(el);
+      if (typeof el === 'string') el = document.getElementById(el);
 
       // Does nothing if canvas name doesn't exists
       if (el === null || el === undefined) return;
@@ -670,11 +671,11 @@
       draw = this._determineDrawingFunction(draw);
 
       // Does nothing if the draw function isn't actually a function
-      if (typeof draw !== "function") return;
+      if (typeof draw !== 'function') return;
 
       obj = {
         element: el,
-        context: el.getContext("2d"),
+        context: el.getContext('2d'),
         drawing: draw,
       };
 
@@ -684,9 +685,9 @@
     set: function (el, draw) {
       var i;
 
-      if (typeof el === "string") el = document.getElementById(el);
+      if (typeof el === 'string') el = document.getElementById(el);
 
-      for (i = this.list.length; i--;)
+      for (i = this.list.length; i--; )
         if (this.list[i].element === el) {
           this.list[i].drawing = this._determineDrawingFunction(draw);
           this.draw(this.list[i], KEYFRAME);
@@ -698,9 +699,9 @@
     remove: function (el) {
       var i;
 
-      if (typeof el === "string") el = document.getElementById(el);
+      if (typeof el === 'string') el = document.getElementById(el);
 
-      for (i = this.list.length; i--;)
+      for (i = this.list.length; i--; )
         if (this.list[i].element === el) {
           this.list.splice(i, 1);
           return;
@@ -722,7 +723,7 @@
         var now = Date.now(),
           i;
 
-        for (i = self.list.length; i--;) self.draw(self.list[i], now);
+        for (i = self.list.length; i--; ) self.draw(self.list[i], now);
       }, 1000 / 60);
     },
     pause: function () {
