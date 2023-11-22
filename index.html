@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <title>Weather Extension</title>
+  </head>
+
+  <body>
+    <div class="loading-screen" id="loadingScreen">
+      <div class="lds-roller">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <div class="container" id="contentContainer">
+      <img class="bg" src="" alt="background image" />
+      <div class="content">
+        <canvas id="icon1" width="128" height="128"></canvas>
+        <div class="city"></div>
+        <div class="temperature"></div>
+      </div>
+    </div>
+  </body>
+
+  <script src="jquery.min.js"></script>
+  <script src="skycons.js"></script>
+  <script src="main.js"></script>
+</html>
