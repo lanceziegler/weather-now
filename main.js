@@ -132,7 +132,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     document.getElementById('icon1'),
                     Skycons.CLEAR_NIGHT
                   );
-                } else if ((daytime && shortForecastCase === 2) || 3) {
+                } else if (
+                  daytime &&
+                  (shortForecastCase === 2 || shortForecastCase === 3)
+                ) {
                   cityDiv.style.color = 'white';
                   cityDiv.style.textShadow = '0px 2px 4px black';
                   bg.src = `${pictures[2]}`;
@@ -141,7 +144,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     document.getElementById('icon1'),
                     Skycons.PARTLY_CLOUDY_DAY
                   );
-                } else if (!daytime && shortForecastCase === 2) {
+                } else if (
+                  !daytime &&
+                  (shortForecastCase === 2 || shortForecastCase === 3)
+                ) {
                   bg.src = `${pictures[3]}`;
                   skycons.color = 'white';
                   iconDiv.style.border = '4px solid white';
