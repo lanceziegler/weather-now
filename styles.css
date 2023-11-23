@@ -197,3 +197,14 @@
   justify-content: center;
   align-items: center;
 }
+
+.github {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 10%;
+}
+
+.github:hover {
+  cursor: pointer;
+}
