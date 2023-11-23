@@ -29,4 +29,8 @@ WeatherNow utilizes the [weather.gov API](https://api.weather.gov) to fetch accu
 
 ## Contributing
 
+- Created by:
+  - Saad Hamdani (https://www.linkedin.com/in/saadh123/)
+  - Lance Ziegler (https://www.linkedin.com/in/lance-ziegler/)
+
 If you'd like to contribute to WeatherNow, feel free to fork the repository and create a pull request. We welcome any improvements or additional features!

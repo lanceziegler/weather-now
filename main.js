@@ -176,6 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
               }
               skycons.play();
 
+              //TODO - Need to finish rest of weather cases (hard to test without VPN for location spoofing)
               // } else if (skycons.list[0].loadPic === 6) {
               //   bg.src = `${pictures[5]}`;
               // } else if (skycons.list[0].loadPic === 7) {
