@@ -118,7 +118,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     Skycons.CLEAR_DAY
                   );
                 } else if (!daytime && shortForecastCase === 1) {
-                  //! Issue with loadPic
                   bg.src = `${pictures[1]}`;
                   skycons.color = 'white';
                   iconDiv.style.border = '4px solid white';
