@@ -81,16 +81,16 @@ document.addEventListener('DOMContentLoaded', () => {
                   shortForecastCase = 3;
                 }
                 if (
-                  shortForecast.includes('rain') &&
-                  shortForecast.includes('light')
+                  shortForecast.includes('rain') ||
+                  shortForecast.includes('light') ||
+                  shortForecast.includes('showers')
                 ) {
                   //Light Rain CASE
                   shortForecastCase = 4;
                 }
                 if (
-                  (shortForecast.includes('rain') &&
-                    shortForecast.includes('heavy')) ||
-                  shortForecast.includes('showers')
+                  shortForecast.includes('rain') &&
+                  shortForecast.includes('heavy')
                 ) {
                   //Heavy Rain CASE (use sleet skycon... looks more like heavy rain anyways)
                   shortForecastCase = 5;
@@ -162,7 +162,8 @@ document.addEventListener('DOMContentLoaded', () => {
                   );
                 } else if (shortForecastCase === 4) {
                   // Rain
-                  bg.src = `${pictures[2]}`;
+                  bg.src = `${pictures[4]}`;
+                  bg.style.opacity = 1;
                   cityDiv.style.color = 'white';
                   cityDiv.style.textShadow = '0px 3px 5px black';
                   skycons.add(document.getElementById('icon1'), Skycons.RAIN);
