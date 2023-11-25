@@ -198,10 +198,10 @@ document.addEventListener('DOMContentLoaded', () => {
               console.log(weather);
               console.log(daytime);
               console.log(shortForecast);
-              setTimeout(() => {
-                loadingScreen.style.display = 'none';
-                contentContainer.style.display = 'block';
-              }, 200);
+
+              // Disables loader once data is fetched
+              loadingScreen.style.display = 'none';
+              contentContainer.style.display = 'block';
             });
         });
     });
