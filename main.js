@@ -103,7 +103,10 @@ document.addEventListener('DOMContentLoaded', () => {
                   //Heavy Rain CASE (use sleet skycon... looks more like heavy rain anyways)
                   shortForecastCase = 7;
                 }
-                if (shortForecast.includes('fog')) {
+                if (
+                  shortForecast.includes('fog') &&
+                  !shortForecast.includes('sun')
+                ) {
                   //Fog CASE
                   shortForecastCase = 8;
                 }
